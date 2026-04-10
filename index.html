@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TOKMARKET — Premium Social Media Accounts</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
@@ -33,7 +33,6 @@
       font-family: 'DM Sans', sans-serif;
       overflow-x: hidden;
     }
-    /* NAV */
     nav {
       position: fixed;
       top: 0;
@@ -78,7 +77,6 @@
       border-radius: 6px;
       font-weight: 700 !important;
     }
-    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -108,7 +106,6 @@
       padding: 6px 16px;
       border-radius: 100px;
       margin-bottom: 28px;
-      position: relative;
     }
     .hero h1 {
       font-family: 'Bebas Neue', sans-serif;
@@ -116,7 +113,6 @@
       line-height: 0.92;
       letter-spacing: 2px;
       margin-bottom: 28px;
-      position: relative;
     }
     .hero h1 .accent {
       color: var(--pink);
@@ -128,12 +124,10 @@
       line-height: 1.7;
       font-weight: 300;
       margin-bottom: 44px;
-      position: relative;
     }
     .hero-btns {
       display: flex;
       gap: 14px;
-      position: relative;
     }
     .btn-primary {
       background: var(--pink);
@@ -164,7 +158,6 @@
       border-color: rgba(255,255,255,0.35);
       background: rgba(255,255,255,0.04);
     }
-    /* STATS */
     .stats-bar {
       background: var(--gray);
       border-top: 1px solid rgba(255,255,255,0.06);
@@ -192,7 +185,6 @@
       text-transform: uppercase;
       font-weight: 500;
     }
-    /* PLATFORM SECTIONS */
     .platform-section {
       padding: 80px 48px 40px;
       max-width: 1300px;
@@ -232,7 +224,6 @@
       letter-spacing: 0;
       margin-left: 8px;
     }
-    /* CARDS */
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -250,13 +241,16 @@
       border-color: rgba(255,45,85,0.3);
       box-shadow: 0 20px 50px rgba(0,0,0,0.5);
     }
-    /* IMAGE AREA */
+    /* Image area - no "Add Image" pseudo-element */
     .card-image {
       width: 100%;
       height: 220px;
-      overflow: hidden;
-      background: var(--mid);
       position: relative;
+      background: linear-gradient(145deg, var(--mid), #1a1a1a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
     .card-image img {
       width: 100%;
@@ -264,21 +258,13 @@
       object-fit: cover;
       display: block;
     }
-    /* Placeholder shown when image missing */
-    .card-image img[src=""] , .card-image img:not([src]) {
-      display: none;
-    }
-    .card-image::after {
-      content: '📷 Add Image';
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
+    /* Fallback for cards without image: show follower count as text */
+    .card-image .fallback-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.8);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
     .platform-badge {
       position: absolute;
@@ -292,11 +278,9 @@
       text-transform: uppercase;
       color: white;
       z-index: 2;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
     }
-    .platform-badge.fb { background: var(--fb); }
-    .platform-badge.tt { background: var(--tt); }
-    .platform-badge.ig { background: linear-gradient(135deg, #f09433, #bc1888); }
-    /* CARD BODY */
     .card-body {
       padding: 18px 20px 20px;
     }
@@ -324,7 +308,6 @@
       align-items: center;
       justify-content: flex-end;
     }
-    /* Price removed completely — only WhatsApp button remains */
     .btn-whatsapp {
       background: #25D366;
       color: var(--white);
@@ -334,10 +317,9 @@
       font-weight: 700;
       font-size: 13px;
       cursor: pointer;
-      transition: opacity 0.2s, transform 0.2s, background 0.2s;
+      transition: opacity 0.2s, transform 0.2s;
       letter-spacing: 0.5px;
       font-family: 'DM Sans', sans-serif;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       width: 100%;
       text-align: center;
     }
@@ -351,13 +333,93 @@
       border-top: 1px solid rgba(255,255,255,0.06);
       margin: 0 48px;
     }
-    /* HOW IT WORKS */
+    /* REVIEWS SECTION */
+    .reviews-section {
+      background: var(--gray);
+      padding: 70px 48px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .reviews-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .reviews-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .reviews-title span {
+      color: var(--cyan);
+    }
+    .stars {
+      margin-bottom: 20px;
+    }
+    .stars span {
+      font-size: 32px;
+      color: #FFD700;
+      letter-spacing: 6px;
+    }
+    .rating-text {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .rating-count {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+    }
+    .review-card {
+      background: var(--black);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: left;
+      transition: transform 0.2s;
+    }
+    .review-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,245,212,0.3);
+    }
+    .review-stars {
+      color: #FFD700;
+      font-size: 16px;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+    .review-text {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #ddd;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+    .reviewer {
+      font-size: 12px;
+      color: var(--cyan);
+      font-weight: 600;
+    }
+    .reviewer-location {
+      font-size: 11px;
+      color: var(--muted);
+      display: block;
+      margin-top: 4px;
+    }
     .how-section {
       background: var(--gray);
       border-top: 1px solid rgba(255,255,255,0.06);
       border-bottom: 1px solid rgba(255,255,255,0.06);
       padding: 80px 48px;
-      margin-top: 60px;
     }
     .how-inner {
       max-width: 1100px;
@@ -403,7 +465,6 @@
       line-height: 1.65;
       font-weight: 300;
     }
-    /* CONTACT */
     .cta-section {
       padding: 90px 48px;
       text-align: center;
@@ -444,9 +505,6 @@
       transition: border-color 0.2s;
       resize: none;
     }
-    .contact-form input::placeholder, .contact-form textarea::placeholder {
-      color: var(--muted);
-    }
     .contact-form input:focus, .contact-form textarea:focus {
       border-color: rgba(255,45,85,0.5);
     }
@@ -468,7 +526,6 @@
     .btn-submit:hover {
       opacity: 0.85;
     }
-    /* FOOTER */
     footer {
       background: var(--gray);
       border-top: 1px solid rgba(255,255,255,0.06);
@@ -482,46 +539,21 @@
       color: var(--muted);
     }
     @media (max-width: 768px) {
-      nav {
-        padding: 14px 20px;
-      }
-      .hero {
-        padding: 120px 20px 60px;
-      }
-      .stats-bar {
-        gap: 32px;
-        padding: 24px 20px;
-      }
-      .platform-section {
-        padding: 50px 20px 30px;
-      }
-      .divider {
-        margin: 0 20px;
-      }
-      .how-section {
-        padding: 60px 20px;
-      }
-      .steps {
-        grid-template-columns: 1fr;
-      }
-      .cta-section {
-        padding: 60px 20px;
-      }
-      footer {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-        padding: 20px;
-      }
-      .btn-whatsapp {
-        padding: 10px 16px;
-        font-size: 12px;
-      }
+      nav { padding: 14px 20px; }
+      .hero { padding: 120px 20px 60px; }
+      .stats-bar { gap: 32px; padding: 24px 20px; }
+      .platform-section { padding: 50px 20px 30px; }
+      .divider { margin: 0 20px; }
+      .reviews-section { padding: 50px 20px; }
+      .how-section { padding: 60px 20px; }
+      .steps { grid-template-columns: 1fr; }
+      .cta-section { padding: 60px 20px; }
+      footer { flex-direction: column; gap: 10px; padding: 20px; }
+      .review-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-<!-- NAV -->
 <nav>
   <div class="logo">TOK<span>MARKET</span></div>
   <div class="nav-right">
@@ -531,7 +563,6 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-tag">⚡ Premium Social Media Accounts For Sale</div>
   <h1>OWN A<br><span class="accent">READY-MADE</span><br>AUDIENCE</h1>
@@ -542,7 +573,6 @@
   </div>
 </section>
 
-<!-- STATS -->
 <div class="stats-bar">
   <div class="stat"><span class="stat-num">10</span><span class="stat-label">Accounts Available</span></div>
   <div class="stat"><span class="stat-num">3</span><span class="stat-label">Platforms</span></div>
@@ -550,16 +580,15 @@
   <div class="stat"><span class="stat-num">24H</span><span class="stat-label">Transfer Time</span></div>
 </div>
 
-<!-- ===== ACCOUNTS SECTION ===== -->
 <div id="accounts">
-  <!-- TIKTOK -->
+  <!-- TIKTOK SECTION -->
   <div class="platform-section">
     <div class="platform-header">
       <div class="platform-icon tt">T</div>
       <div class="platform-title">TikTok Accounts <span class="count">5 available</span></div>
     </div>
     <div class="cards-grid">
-      <!-- TikTok 6.8M -->
+      <!-- 6.8M TikTok - with actual image -->
       <div class="account-card">
         <div class="card-image">
           <img src="tictok 6.8 M.jpg" alt="TikTok 6.8M">
@@ -575,11 +604,11 @@
           </div>
         </div>
       </div>
-      <!-- TikTok 2K -->
+      <!-- 2,005 TikTok (fallback) -->
       <div class="account-card">
         <div class="card-image">
-          <img src="tictoc 2k.jpg" alt="TikTok 2K">
           <span class="platform-badge tt">TikTok</span>
+          <span class="fallback-text">2,005</span>
         </div>
         <div class="card-body">
           <div class="followers-row">
@@ -591,11 +620,11 @@
           </div>
         </div>
       </div>
-      <!-- TikTok 118 -->
+      <!-- 118 TikTok -->
       <div class="account-card">
         <div class="card-image">
-          <img src="tictok 118.jpg" alt="TikTok 118">
           <span class="platform-badge tt">TikTok</span>
+          <span class="fallback-text">118</span>
         </div>
         <div class="card-body">
           <div class="followers-row">
@@ -607,11 +636,11 @@
           </div>
         </div>
       </div>
-      <!-- TikTok 3.8K -->
+      <!-- 3,800 TikTok -->
       <div class="account-card">
         <div class="card-image">
-          <img src="tictoc 3.8k.jpg" alt="TikTok 3.8K">
           <span class="platform-badge tt">TikTok</span>
+          <span class="fallback-text">3,800</span>
         </div>
         <div class="card-body">
           <div class="followers-row">
@@ -623,11 +652,11 @@
           </div>
         </div>
       </div>
-      <!-- TikTok 1.1K -->
+      <!-- 1,100 TikTok -->
       <div class="account-card">
         <div class="card-image">
-          <img src="tictok 1.1k.jpg" alt="TikTok 1.1K">
           <span class="platform-badge tt">TikTok</span>
+          <span class="fallback-text">1,100</span>
         </div>
         <div class="card-body">
           <div class="followers-row">
@@ -643,7 +672,7 @@
   </div>
   <hr class="divider">
 
-  <!-- FACEBOOK -->
+  <!-- FACEBOOK SECTION -->
   <div class="platform-section">
     <div class="platform-header">
       <div class="platform-icon fb">f</div>
@@ -651,56 +680,13 @@
     </div>
     <div class="cards-grid">
       <div class="account-card">
-        <div class="card-image">
-          <img src="Facebook 1.3k.jpg" alt="Facebook 1.3K">
-          <span class="platform-badge fb">Facebook</span>
-        </div>
-        <div class="card-body">
-          <div class="followers-row">
-            <span class="followers-label">Friends / Followers</span>
-            <span class="followers-count">1,300</span>
-          </div>
-          <div class="card-footer">
-            <button class="btn-whatsapp" onclick="window.open('https://wa.me/2347010586084', '_blank')">Message now to get</button>
-          </div>
-        </div>
+        <div class="card-image"><span class="platform-badge fb">Facebook</span><span class="fallback-text">1,300</span></div>
+        <div class="card-body"><div class="followers-row"><span class="followers-label">Friends / Followers</span><span class="followers-count">1,300</span></div><div class="card-footer"><button class="btn-whatsapp" onclick="window.open('https://wa.me/2347010586084', '_blank')">Message now to get</button></div></div>
       </div>
       <div class="account-card">
-        <div class="card-image">
-          <img src="facebook 602.jpg" alt="Facebook 602">
-          <span class="platform-badge fb">Facebook</span>
-        </div>
-        <div class="card-body">
-          <div class="followers-row">
-            <span class="followers-label">Friends / Followers</span>
-            <span class="followers-count">602</span>
-          </div>
-          <div class="card-footer">
-            <button class="btn-whatsapp" onclick="window.open('https://wa.me/2347010586084', '_blank')">Message now to get</button>
-          </div>
-        </div>
+        <div class="card-image"><span class="platform-badge fb">Facebook</span><span class="fallback-text">602</span></div>
+        <div class="card-body"><div class="followers-row"><span class="followers-label">Friends / Followers</span><span class="followers-count">602</span></div><div class="card-footer"><button class="btn-whatsapp" onclick="window.open('https://wa.me/2347010586084', '_blank')">Message now to get</button></div></div>
       </div>
       <div class="account-card">
-        <div class="card-image">
-          <img src="Facebook 113.jpg" alt="Facebook 113">
-          <span class="platform-badge fb">Facebook</span>
-        </div>
-        <div class="card-body">
-          <div class="followers-row">
-            <span class="followers-label">Friends / Followers</span>
-            <span class="followers-count">113</span>
-          </div>
-          <div class="card-footer">
-            <button class="btn-whatsapp" onclick="window.open('https://wa.me/2347010586084', '_blank')">Message now to get</button>
-          </div>
-        </div>
-      </div>
-      <div class="account-card">
-        <div class="card-image">
-          <img src="Facebook 1.5k.jpg" alt="Facebook 1.5K">
-          <span class="platform-badge fb">Facebook</span>
-        </div>
-        <div class="card-body">
-          <div class="followers-row">
-            <span class="followers-label">Friends / Followers</span>
-   
+        <div class="card-image"><span class="platform-badge fb">Facebook</span><span class="fallback-text">113</span></div>
+        <div class="card-body"><div class="followers-row"><span 
