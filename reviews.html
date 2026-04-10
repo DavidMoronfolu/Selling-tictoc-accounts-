@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOK MARKET — Reviews</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0a0a0a; --white: #f5f0eb; --pink: #ff2d55; --cyan: #00f5d4;
+            --yellow: #ffe600; --purple: #9b5de5; --gray: #161616; --muted: #aaa;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 16px 20px; background: rgba(10,10,10,0.96); backdrop-filter: blur(20px);
+            border-bottom: 3px solid var(--pink);
+        }
+        .logo { 
+            font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 3px; font-weight: 900;
+            background: linear-gradient(90deg, var(--pink), var(--cyan));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .nav-right { display: flex; gap: 10px; flex-wrap: wrap; }
+        .nav-right a { 
+            color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 600; 
+            padding: 6px 10px;
+        }
+        .nav-right a:hover { color: var(--cyan); }
+        .nav-cta { 
+            background: linear-gradient(45deg, var(--pink), var(--purple)); 
+            color: white; padding: 8px 18px; border-radius: 30px; font-weight: 700; font-size: 13px;
+        }
+
+        .hero { 
+            min-height: 100vh; display: flex; flex-direction: column; justify-content: center; 
+            align-items: center; text-align: center; padding: 130px 20px 80px;
+            background: radial-gradient(circle at 50% 30%, rgba(255,45,85,0.25), rgba(0,245,212,0.15), transparent);
+        }
+        .hero-tag { 
+            background: linear-gradient(90deg, var(--yellow), var(--pink)); color: black; 
+            padding: 8px 22px; border-radius: 50px; font-weight: 800; font-size: 12px; margin-bottom: 20px;
+        }
+        .hero h1 { 
+            font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 12vw, 82px); 
+            line-height: 0.92; letter-spacing: 1px;
+            background: linear-gradient(#fff, var(--cyan), var(--pink)); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
