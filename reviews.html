@@ -8,7 +8,7 @@
     <style>
         :root {
             --black: #0a0a0a; --white: #f5f0eb; --pink: #ff2d55; --cyan: #00f5d4;
-            --yellow: #ffe600; --purple: #9b5de5; --gray: #161616; --muted: #aaa;
+            --yellow: #ffe600; --purple: #9b5de5; --gray: #1f1f1f; --muted: #ccc;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
@@ -38,7 +38,7 @@
         .hero { 
             min-height: 100vh; display: flex; flex-direction: column; justify-content: center; 
             align-items: center; text-align: center; padding: 130px 20px 80px;
-            background: radial-gradient(circle at 50% 30%, rgba(255,45,85,0.25), rgba(0,245,212,0.15), transparent);
+            background: radial-gradient(circle at 50% 30%, rgba(255,45,85,0.35), rgba(0,245,212,0.25), transparent);
         }
         .hero-tag { 
             background: linear-gradient(90deg, var(--yellow), var(--pink)); color: black; 
@@ -50,3 +50,165 @@
             background: linear-gradient(#fff, var(--cyan), var(--pink)); 
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
+        .hero p { font-size: 16px; color: var(--muted); max-width: 380px; margin: 24px 0 40px; }
+
+        .hero-btns { display: flex; flex-direction: column; gap: 14px; width: 100%; max-width: 320px; }
+        .btn-primary, .btn-ghost { 
+            padding: 16px 32px; border-radius: 50px; font-size: 16px; font-weight: 700; 
+            text-decoration: none; width: 100%; text-align: center;
+        }
+        .btn-primary { background: linear-gradient(45deg, var(--pink), var(--purple)); color: white; }
+        .btn-ghost { border: 3px solid var(--cyan); color: var(--cyan); }
+
+        .platform-section { padding: 70px 20px 50px; }
+        .platform-header { 
+            display: flex; align-items: center; gap: 14px; margin-bottom: 30px; 
+        }
+        .platform-icon { 
+            width: 52px; height: 52px; border-radius: 14px; display: flex; 
+            align-items: center; justify-content: center; font-size: 26px; font-weight: 900; 
+            background: linear-gradient(var(--cyan), var(--pink)); box-shadow: 0 0 25px var(--cyan);
+        }
+
+        .review-grid { 
+            display: grid; grid-template-columns: 1fr; gap: 22px; 
+            max-width: 620px; margin: 0 auto; 
+        }
+        .review-card { 
+            background: linear-gradient(135deg, #242424, #1a1a1a); 
+            border: 2px solid rgba(0,245,212,0.3); 
+            border-radius: 20px; padding: 28px; text-align: center;
+            box-shadow: 0 10px 30px rgba(0,245,212,0.15);
+        }
+        .review-text { 
+            font-style: italic; font-size: 16.5px; line-height: 1.65; 
+            color: var(--white); margin-bottom: 22px;
+        }
+        .review-author { 
+            color: var(--cyan); font-weight: 700; font-size: 15px;
+            text-shadow: 0 0 8px var(--cyan);
+        }
+
+        .how-section { background: linear-gradient(#111, var(--gray)); padding: 70px 20px; }
+        .how-title { 
+            font-family: 'Bebas Neue', sans-serif; font-size: 42px; text-align: center; 
+            margin-bottom: 40px; background: linear-gradient(var(--cyan), var(--pink)); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .steps { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .step { 
+            background: var(--gray); padding: 30px 20px; border-radius: 16px; text-align: center; 
+            border: 1px solid var(--cyan);
+        }
+
+        .cta-section { padding: 80px 20px; text-align: center; }
+        .cta-section h2 { color: var(--cyan); }
+        footer { 
+            background: var(--gray); padding: 25px 20px; text-align: center; 
+            font-size: 13px; color: var(--muted); border-top: 2px solid var(--pink);
+        }
+
+        @media (min-width: 768px) {
+            .review-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
+            .hero-btns { flex-direction: row; }
+            .steps { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">TOK<span style="color:var(--pink)">MARKET</span></div>
+        <div class="nav-right">
+            <a href="index.html">TikTok</a>
+            <a href="facebook.html">Facebook</a>
+            <a href="insta.html">Instagram</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="#how">How</a>
+            <a href="https://wa.me/2347010586084" target="_blank" class="nav-cta">💬 WhatsApp</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-tag">⭐ REAL CUSTOMER REVIEWS</div>
+        <h1>WHAT OUR<br><span style="background: linear-gradient(var(--pink), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">BUYERS SAY</span></h1>
+        <p>Don't just take our word for it. Here's what real customers experienced.</p>
+        <div class="hero-btns">
+            <a href="#reviews" class="btn-primary">Read Reviews</a>
+            <a href="https://wa.me/2347010586084" target="_blank" class="btn-ghost">Chat on WhatsApp</a>
+        </div>
+    </section>
+
+    <div id="reviews" class="platform-section">
+        <div class="platform-header">
+            <div class="platform-icon">★</div>
+            <div class="platform-title">Customer Reviews</div>
+        </div>
+        <div class="review-grid">
+            <div class="review-card">
+                <div class="review-text">
+                    "Got my TikTok 6.8M account delivered in less than 12 hours. Super smooth and legit. Highly recommended!"
+                </div>
+                <div class="review-author">— David, Port Harcourt</div>
+            </div>
+            <div class="review-card">
+                <div class="review-text">
+                    "Bought the Instagram account with 3,175 followers. Everything worked perfectly and support was fast."
+                </div>
+                <div class="review-author">— Chioma, Lagos</div>
+            </div>
+            <div class="review-card">
+                <div class="review-text">
+                    "The Facebook 1.5k account was transferred safely. Best service I've used for buying accounts."
+                </div>
+                <div class="review-author">— Emeka, Abuja</div>
+            </div>
+            <div class="review-card">
+                <div class="review-text">
+                    "Very reliable seller. Paid and got full access the same day. Will definitely buy again."
+                </div>
+                <div class="review-author">— Aisha, Rivers State</div>
+            </div>
+        </div>
+    </div>
+
+    <section class="how-section" id="how">
+        <div class="how-title">HOW IT WORKS</div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">01</div>
+                <h3>Pick Account</h3>
+                <p style="color:var(--muted);">Browse and choose</p>
+            </div>
+            <div class="step">
+                <div class="step-num">02</div>
+                <h3>Message Us</h3>
+                <p style="color:var(--muted);">Click WhatsApp</p>
+            </div>
+            <div class="step">
+                <div class="step-num">03</div>
+                <h3>Get Access</h3>
+                <p style="color:var(--muted);">Login in 24 hours</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>READY TO BUY?</h2>
+        <p style="color:var(--muted);">Fast response on WhatsApp</p>
+        <a href="https://wa.me/2347010586084" target="_blank" style="display:block;background:linear-gradient(45deg,var(--pink),var(--purple));color:white;padding:16px;border-radius:50px;font-weight:700;margin:30px auto 0;max-width:280px;">💬 Open WhatsApp</a>
+    </section>
+
+    <footer>
+        <div>TOK<span style="color:var(--pink)">MARKET</span> © 2026</div>
+        <div>WhatsApp: 0701 058 6084</div>
+    </footer>
+
+    <script>
+        function contactWA(name) {
+            const msg = encodeURIComponent(`Hi, I'm interested in the ${name} account. Please send details.`);
+            window.open(`https://wa.me/2347010586084?text=${msg}`, '_blank');
+        }
+    </script>
+</body>
+                    </html>
